@@ -23,6 +23,8 @@ Route::prefix('v1')->namespace('Api')->group(function() {
     Route::get('logout', 'Auth\\JwtController@logout')->name('logout');
     Route::get('refresh', 'Auth\\JwtController@refresh')->name('refresh');
 
+    Route::get('/search', 'RealStateSearchController@index')->name('search');
+
     Route::group(['middleware' => ['jwt.auth']], function() {
         Route::name('real_states.')->group(function() {
             Route::resource('real-states', 'RealStateController');
