@@ -20,7 +20,10 @@ class RealStateController extends Controller
     public function show($id)
     {
         try {
-            $realState = auth('api')->user()->real_state()->with('photos')->findOrFail($id);
+            $realState = auth('api')->user()->real_state()
+                                            ->with('photos')
+                                            ->findOrFail($id)
+                                            ->makeHidden('thumb');
 
             return response()->json(['data' => $realState], 200);
         } catch (\Exception $e) {

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AbstractRepository
 {
-    private $model;
+    protected $model;
 
 	public function __construct(Model $model)
 	{

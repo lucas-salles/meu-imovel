@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class RealState extends Model
 {
+    protected $appends = ['_links', 'thumb'];
+
     protected $fillable = [
         'user_id',
         'title',
@@ -18,6 +20,25 @@ class RealState extends Model
         'total_property_area',
         'slug'
     ];
+
+    // Accessors
+    public function getLinksAttribute()
+    {
+        return [
+            'href' => route('real_states.real-states.show', ['realState' => $this->id]),
+            'rel' => 'Imóveis'
+        ];
+    }
+
+    public function getThumbAttribute()
+    {
+        $thumb = $this->photos()->where('is_thumb', true);
+
+        if(!$thumb->count())
+            return null;
+        
+        return $thumb->first()->photo;
+    }
 
     public function user()
     {
