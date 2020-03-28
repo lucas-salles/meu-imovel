@@ -7,4 +7,4 @@ Uma API Rest para anúncios de imóveis.
 O projeto foi implementado usando o framework [Laravel](https://laravel.com/).
 
 ## Extensão Utilizada
-Foi utilizado o [tymondesigns/jwt-auth]https://github.com/tymondesigns/jwt-auth) para autenticação [JWT (JSON Web Token)](https://jwt.io/).
+Foi utilizado o [tymondesigns/jwt-auth](https://github.com/tymondesigns/jwt-auth) para autenticação [JWT (JSON Web Token)](https://jwt.io/).
